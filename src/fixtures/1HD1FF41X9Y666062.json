@@ -1,0 +1,63 @@
+{
+  "vin": "1HD1FF41X9Y666062",
+  "recordedAt": "2026-10-16T15:00:00.000Z",
+  "sdk": "@cardog/api@2.2.0",
+  "calls": {
+    "decode": {
+      "ok": true,
+      "ms": 197,
+      "provenance": "recorded 2026-10-16 via the Cardog MCP server (identify_vehicle, same API); MCP-only keys dropped, latency hand-set",
+      "response": {
+        "vin": "1HD1FF41X9Y666062",
+        "valid": true,
+        "year": 2009,
+        "make": "Harley-Davidson",
+        "model": "Electra Glide Classic",
+        "trim": null,
+        "refs": {
+          "make": "make:harley-davidson",
+          "model": "model:harley-davidson/electra-glide-classic",
+          "modelYear": "model-year:harley-davidson/electra-glide-classic/2009",
+          "bodyStyle": "body-style:motorcycle-touring-sport-touring",
+          "fuelType": "fuel-type:gasoline",
+          "driveType": null,
+          "transmission": null,
+          "electrificationLevel": null,
+          "vehicleType": "vehicle-type:motorcycle",
+          "gvwr": null,
+          "country": null,
+          "bodyCab": null,
+          "bedType": null,
+          "series": null,
+          "fuelTypeSecondary": null,
+          "trailerBodyType": null,
+          "trailerType": null
+        },
+        "nano": "nano:1HD1FF419Y",
+        "squish": "squish:1HD1FF419",
+        "links": {
+          "instrument": "/v2/vin/1HD1FF41X9Y666062/instrument",
+          "recalls": "/v2/vin/1HD1FF41X9Y666062/recalls",
+          "listings": "/v2/vin/1HD1FF41X9Y666062/listings",
+          "makeEntity": "/v2/entities/make%3Aharley-davidson",
+          "modelEntity": "/v2/entities/model%3Aharley-davidson%2Felectra-glide-classic",
+          "nanoEntity": "/v2/entities/nano%3A1HD1FF419Y",
+          "specsBuild": "/v2/specs/nano%3A1HD1FF419Y",
+          "specs": "/v2/specs/model-year%3Aharley-davidson%2Felectra-glide-classic%2F2009",
+          "quote": "/v2/quotes/model-year%3Aharley-davidson%2Felectra-glide-classic%2F2009",
+          "safety": "/v2/safety/model-year%3Aharley-davidson%2Felectra-glide-classic%2F2009"
+        }
+      }
+    },
+    "recalls": {
+      "ok": true,
+      "ms": 166,
+      "provenance": "recorded 2026-10-16 via the Cardog MCP server (check_recalls by model-year ref, same API); first 5 campaigns kept, long summaries shortened, latency hand-set",
+      "response": {
+        "ref": "model-year:harley-davidson/electra-glide-classic/2009",
+        "total": 0,
+        "recalls": []
+      }
+    }
+  }
+}

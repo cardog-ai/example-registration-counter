@@ -1,0 +1,179 @@
+{
+  "vin": "3C63R3NL9NG189460",
+  "recordedAt": "2026-10-16T15:00:00.000Z",
+  "sdk": "@cardog/api@2.2.0",
+  "calls": {
+    "decode": {
+      "ok": true,
+      "ms": 238,
+      "provenance": "recorded 2026-10-16 via the Cardog MCP server (identify_vehicle, same API); MCP-only keys dropped, latency hand-set",
+      "response": {
+        "vin": "3C63R3NL9NG189460",
+        "valid": true,
+        "year": 2022,
+        "make": "Ram",
+        "model": "3500",
+        "trim": "Longhorn",
+        "refs": {
+          "make": "make:ram",
+          "model": "model:ram/3500",
+          "modelYear": "model-year:ram/3500/2022",
+          "bodyStyle": "body-style:pickup",
+          "fuelType": "fuel-type:diesel",
+          "driveType": "drive-type:4wd-4-wheel-drive-4x4",
+          "transmission": null,
+          "electrificationLevel": null,
+          "vehicleType": "vehicle-type:truck",
+          "gvwr": "gvwr:class-3-10-001-14-000-lb-4-536-6-350-kg",
+          "country": null,
+          "bodyCab": "body-cab:mega",
+          "bedType": null,
+          "series": null,
+          "fuelTypeSecondary": null,
+          "trailerBodyType": null,
+          "trailerType": null
+        },
+        "nano": "nano:3C63R3NLNG",
+        "squish": "squish:3C63R3NLN",
+        "links": {
+          "instrument": "/v2/vin/3C63R3NL9NG189460/instrument",
+          "recalls": "/v2/vin/3C63R3NL9NG189460/recalls",
+          "listings": "/v2/vin/3C63R3NL9NG189460/listings",
+          "makeEntity": "/v2/entities/make%3Aram",
+          "modelEntity": "/v2/entities/model%3Aram%2F3500",
+          "nanoEntity": "/v2/entities/nano%3A3C63R3NLNG",
+          "specsBuild": "/v2/specs/nano%3A3C63R3NLNG",
+          "specs": "/v2/specs/model-year%3Aram%2F3500%2F2022",
+          "quote": "/v2/quotes/model-year%3Aram%2F3500%2F2022",
+          "safety": "/v2/safety/model-year%3Aram%2F3500%2F2022"
+        }
+      }
+    },
+    "recalls": {
+      "ok": true,
+      "ms": 274,
+      "provenance": "recorded 2026-10-16 via the Cardog MCP server (check_recalls by model-year ref, same API); first 5 campaigns kept, long summaries shortened, latency hand-set",
+      "response": {
+        "ref": "model-year:ram/3500/2022",
+        "total": 24,
+        "recalls": [
+          {
+            "ref": "recall:nhtsa/25v765000",
+            "authority": "nhtsa",
+            "authorityLabel": "NHTSA",
+            "campaignNumber": "25V765000",
+            "component": "STEERING:STEERING CONTROL MODULE",
+            "defectSummary": "The steering column control module may cause the driver's side air bag not to deploy as intended.",
+            "consequenceSummary": null,
+            "correctiveAction": null,
+            "recallDate": "2025-11-06",
+            "notificationType": null,
+            "unitsAffected": 532,
+            "affects": [
+              {
+                "modelYearRef": "model-year:ram/3500/2022",
+                "year": 2022,
+                "unitsAffected": 532
+              }
+            ],
+            "links": {
+              "self": "/v2/recalls/recall%3Anhtsa%2F25v765000"
+            }
+          },
+          {
+            "ref": "recall:tc/2024548",
+            "authority": "tc",
+            "authorityLabel": "Transport Canada",
+            "campaignNumber": "2024548",
+            "component": "Label",
+            "defectSummary": "On certain vehicles, the tire and loading information label does not list that there is no spare tire in both official languages.",
+            "consequenceSummary": null,
+            "correctiveAction": null,
+            "recallDate": "2024-08-15",
+            "notificationType": "Inconsequential",
+            "unitsAffected": 314717,
+            "affects": [
+              {
+                "modelYearRef": "model-year:ram/3500/2022",
+                "year": 2022,
+                "unitsAffected": 314717
+              }
+            ],
+            "links": {
+              "self": "/v2/recalls/recall%3Atc%2F2024548"
+            }
+          },
+          {
+            "ref": "recall:tc/2024338",
+            "authority": "tc",
+            "authorityLabel": "Transport Canada",
+            "campaignNumber": "2024338",
+            "component": "Visual System",
+            "defectSummary": "On certain vehicles, a software problem could cause the rearview camera image not to appear on the display.",
+            "consequenceSummary": null,
+            "correctiveAction": null,
+            "recallDate": "2024-06-13",
+            "notificationType": "Compliance Mfr",
+            "unitsAffected": 126530,
+            "affects": [
+              {
+                "modelYearRef": "model-year:ram/3500/2022",
+                "year": 2022,
+                "unitsAffected": 126530
+              }
+            ],
+            "links": {
+              "self": "/v2/recalls/recall%3Atc%2F2024338"
+            }
+          },
+          {
+            "ref": "recall:nhtsa/24v436000",
+            "authority": "nhtsa",
+            "authorityLabel": "NHTSA",
+            "campaignNumber": "24V436000",
+            "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+            "defectSummary": "The radio software may prevent the rearview image from displaying.",
+            "consequenceSummary": null,
+            "correctiveAction": null,
+            "recallDate": "2024-06-13",
+            "notificationType": null,
+            "unitsAffected": 1033433,
+            "affects": [
+              {
+                "modelYearRef": "model-year:ram/3500/2022",
+                "year": 2022,
+                "unitsAffected": 1033433
+              }
+            ],
+            "links": {
+              "self": "/v2/recalls/recall%3Anhtsa%2F24v436000"
+            }
+          },
+          {
+            "ref": "recall:tc/2024328",
+            "authority": "tc",
+            "authorityLabel": "Transport Canada",
+            "campaignNumber": "2024328",
+            "component": "Brakes",
+            "defectSummary": "On certain vehicles, a software problem could cause the electronic stability control (ESC) system not to work.",
+            "consequenceSummary": null,
+            "correctiveAction": null,
+            "recallDate": "2024-06-06",
+            "notificationType": "Compliance Mfr",
+            "unitsAffected": 17462,
+            "affects": [
+              {
+                "modelYearRef": "model-year:ram/3500/2022",
+                "year": 2022,
+                "unitsAffected": 17462
+              }
+            ],
+            "links": {
+              "self": "/v2/recalls/recall%3Atc%2F2024328"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

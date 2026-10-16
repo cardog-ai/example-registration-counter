@@ -1,0 +1,63 @@
+{
+  "vin": "5YFB4MBE7NP125200",
+  "recordedAt": "2026-10-16T15:00:00.000Z",
+  "sdk": "@cardog/api@2.2.0",
+  "calls": {
+    "decode": {
+      "ok": true,
+      "ms": 204,
+      "provenance": "recorded 2026-10-16 via the Cardog MCP server (identify_vehicle, same API); MCP-only keys dropped, latency hand-set",
+      "response": {
+        "vin": "5YFB4MBE7NP125200",
+        "valid": true,
+        "year": 2022,
+        "make": "Toyota",
+        "model": "Corolla",
+        "trim": "SE",
+        "refs": {
+          "make": "make:toyota",
+          "model": "model:toyota/corolla",
+          "modelYear": "model-year:toyota/corolla/2022",
+          "bodyStyle": "body-style:hatchback-liftback-notchback",
+          "fuelType": "fuel-type:gasoline",
+          "driveType": "drive-type:4x2",
+          "transmission": null,
+          "electrificationLevel": null,
+          "vehicleType": "vehicle-type:passenger-car",
+          "gvwr": null,
+          "country": null,
+          "bodyCab": null,
+          "bedType": null,
+          "series": null,
+          "fuelTypeSecondary": null,
+          "trailerBodyType": null,
+          "trailerType": null
+        },
+        "nano": "nano:5YFB4MBENP",
+        "squish": "squish:5YFB4MBEN",
+        "links": {
+          "instrument": "/v2/vin/5YFB4MBE7NP125200/instrument",
+          "recalls": "/v2/vin/5YFB4MBE7NP125200/recalls",
+          "listings": "/v2/vin/5YFB4MBE7NP125200/listings",
+          "makeEntity": "/v2/entities/make%3Atoyota",
+          "modelEntity": "/v2/entities/model%3Atoyota%2Fcorolla",
+          "nanoEntity": "/v2/entities/nano%3A5YFB4MBENP",
+          "specsBuild": "/v2/specs/nano%3A5YFB4MBENP",
+          "specs": "/v2/specs/model-year%3Atoyota%2Fcorolla%2F2022",
+          "quote": "/v2/quotes/model-year%3Atoyota%2Fcorolla%2F2022",
+          "safety": "/v2/safety/model-year%3Atoyota%2Fcorolla%2F2022"
+        }
+      }
+    },
+    "recalls": {
+      "ok": true,
+      "ms": 181,
+      "provenance": "recorded 2026-10-16 via the Cardog MCP server (check_recalls by model-year ref, same API); first 5 campaigns kept, long summaries shortened, latency hand-set",
+      "response": {
+        "ref": "model-year:toyota/corolla/2022",
+        "total": 0,
+        "recalls": []
+      }
+    }
+  }
+}

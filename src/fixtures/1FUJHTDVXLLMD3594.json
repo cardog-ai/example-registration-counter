@@ -1,0 +1,179 @@
+{
+  "vin": "1FUJHTDVXLLMD3594",
+  "recordedAt": "2026-10-16T15:00:00.000Z",
+  "sdk": "@cardog/api@2.2.0",
+  "calls": {
+    "decode": {
+      "ok": true,
+      "ms": 226,
+      "provenance": "recorded 2026-10-16 via the Cardog MCP server (identify_vehicle, same API); MCP-only keys dropped, latency hand-set",
+      "response": {
+        "vin": "1FUJHTDVXLLMD3594",
+        "valid": true,
+        "year": 2020,
+        "make": "Freightliner",
+        "model": "Cascadia",
+        "trim": "116\" Day cab",
+        "refs": {
+          "make": "make:freightliner",
+          "model": "model:freightliner/cascadia",
+          "modelYear": "model-year:freightliner/cascadia/2020",
+          "bodyStyle": "body-style:truck-tractor",
+          "fuelType": "fuel-type:diesel",
+          "driveType": "drive-type:6x4",
+          "transmission": null,
+          "electrificationLevel": null,
+          "vehicleType": "vehicle-type:truck",
+          "gvwr": "gvwr:class-8-33-001-lb-and-above-14-969-kg-and-above",
+          "country": null,
+          "bodyCab": "body-cab:mdhd-conventional",
+          "bedType": null,
+          "series": null,
+          "fuelTypeSecondary": null,
+          "trailerBodyType": null,
+          "trailerType": null
+        },
+        "nano": "nano:1FUJHTDVLL",
+        "squish": "squish:1FUJHTDVL",
+        "links": {
+          "instrument": "/v2/vin/1FUJHTDVXLLMD3594/instrument",
+          "recalls": "/v2/vin/1FUJHTDVXLLMD3594/recalls",
+          "listings": "/v2/vin/1FUJHTDVXLLMD3594/listings",
+          "makeEntity": "/v2/entities/make%3Afreightliner",
+          "modelEntity": "/v2/entities/model%3Afreightliner%2Fcascadia",
+          "nanoEntity": "/v2/entities/nano%3A1FUJHTDVLL",
+          "specsBuild": "/v2/specs/nano%3A1FUJHTDVLL",
+          "specs": "/v2/specs/model-year%3Afreightliner%2Fcascadia%2F2020",
+          "quote": "/v2/quotes/model-year%3Afreightliner%2Fcascadia%2F2020",
+          "safety": "/v2/safety/model-year%3Afreightliner%2Fcascadia%2F2020"
+        }
+      }
+    },
+    "recalls": {
+      "ok": true,
+      "ms": 296,
+      "provenance": "recorded 2026-10-16 via the Cardog MCP server (check_recalls by model-year ref, same API); first 5 campaigns kept, long summaries shortened, latency hand-set",
+      "response": {
+        "ref": "model-year:freightliner/cascadia/2020",
+        "total": 40,
+        "recalls": [
+          {
+            "ref": "recall:tc/2026428",
+            "authority": "tc",
+            "authorityLabel": "Transport Canada",
+            "campaignNumber": "2026428",
+            "component": "Brakes",
+            "defectSummary": "On a small number of trucks, the recall repairs completed during earlier recalls may not be effective. As a result, another repair is required.",
+            "consequenceSummary": null,
+            "correctiveAction": null,
+            "recallDate": "2026-09-09",
+            "notificationType": "Safety Mfr",
+            "unitsAffected": 7,
+            "affects": [
+              {
+                "modelYearRef": "model-year:freightliner/cascadia/2020",
+                "year": 2020,
+                "unitsAffected": 7
+              }
+            ],
+            "links": {
+              "self": "/v2/recalls/recall%3Atc%2F2026428"
+            }
+          },
+          {
+            "ref": "recall:nhtsa/26v583000",
+            "authority": "nhtsa",
+            "authorityLabel": "NHTSA",
+            "campaignNumber": "26V583000",
+            "component": "SERVICE BRAKES, AIR:ANTILOCK",
+            "defectSummary": "The brake modulator valves on the front axle may corrode and cause the vehicle to pull to one side during braking initiated by ESC or RSC.",
+            "consequenceSummary": null,
+            "correctiveAction": null,
+            "recallDate": "2026-09-09",
+            "notificationType": null,
+            "unitsAffected": 2404,
+            "affects": [
+              {
+                "modelYearRef": "model-year:freightliner/cascadia/2020",
+                "year": 2020,
+                "unitsAffected": 2404
+              }
+            ],
+            "links": {
+              "self": "/v2/recalls/recall%3Anhtsa%2F26v583000"
+            }
+          },
+          {
+            "ref": "recall:au/rec-005718",
+            "authority": "au",
+            "authorityLabel": "Vehicle Recalls (Australia)",
+            "campaignNumber": "REC-005718",
+            "component": null,
+            "defectSummary": "The spline teeth of the windshield wiper arms may deteriorate and could result in loss of wiper function.",
+            "consequenceSummary": null,
+            "correctiveAction": null,
+            "recallDate": "2023-07-04",
+            "notificationType": null,
+            "unitsAffected": 623,
+            "affects": [
+              {
+                "modelYearRef": "model-year:freightliner/cascadia/2020",
+                "year": 2020,
+                "unitsAffected": 623
+              }
+            ],
+            "links": {
+              "self": "/v2/recalls/recall%3Aau%2Frec-005718"
+            }
+          },
+          {
+            "ref": "recall:au/rec-005682",
+            "authority": "au",
+            "authorityLabel": "Vehicle Recalls (Australia)",
+            "campaignNumber": "REC-005682",
+            "component": null,
+            "defectSummary": "Certain vehicles may develop a fracture to the mounting bracket at the base of the seat.",
+            "consequenceSummary": null,
+            "correctiveAction": null,
+            "recallDate": "2023-05-18",
+            "notificationType": null,
+            "unitsAffected": 965,
+            "affects": [
+              {
+                "modelYearRef": "model-year:freightliner/cascadia/2020",
+                "year": 2020,
+                "unitsAffected": 965
+              }
+            ],
+            "links": {
+              "self": "/v2/recalls/recall%3Aau%2Frec-005682"
+            }
+          },
+          {
+            "ref": "recall:tc/2023280",
+            "authority": "tc",
+            "authorityLabel": "Transport Canada",
+            "campaignNumber": "2023280",
+            "component": "Lights And Instruments",
+            "defectSummary": "Under certain conditions, the hazard lamps could flash improperly when the active brake assist system applies full emergency braking.",
+            "consequenceSummary": null,
+            "correctiveAction": null,
+            "recallDate": "2023-05-11",
+            "notificationType": "Compliance Mfr",
+            "unitsAffected": 903,
+            "affects": [
+              {
+                "modelYearRef": "model-year:freightliner/cascadia/2020",
+                "year": 2020,
+                "unitsAffected": 903
+              }
+            ],
+            "links": {
+              "self": "/v2/recalls/recall%3Atc%2F2023280"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
