@@ -25,8 +25,10 @@ export const VinStrip = forwardRef<
     onSubmit: () => void;
     onPhoto: (file: File) => void;
     photoBusy: boolean;
+    /** Decode a VIN that fails its check digit anyway; the check is flagged. */
+    onForce: () => void;
   }
->(function VinStrip({ value, check, busy, onChange, onSubmit, onPhoto, photoBusy }, ref) {
+>(function VinStrip({ value, check, busy, onChange, onSubmit, onPhoto, photoBusy, onForce }, ref) {
   const fileRef = useRef<HTMLInputElement>(null);
   const bad = check.state === "invalid" ? check.at : check.state === "check-mismatch" ? 8 : -1;
   const tone =
@@ -104,7 +106,12 @@ export const VinStrip = forwardRef<
         <p id="vin-status" role="status" className={`min-w-0 flex-1 pt-1 ${statusTone(check)}`}>
           {statusText(check, busy)}
         </p>
-        <div className="flex shrink-0 gap-2">
+        <div className="flex shrink-0 flex-wrap gap-2">
+          {check.state === "check-mismatch" && (
+            <button type="button" className="btn btn-line h-11" onClick={onForce} disabled={busy}>
+              Decode as typed
+            </button>
+          )}
           <input
             ref={fileRef}
             type="file"
