@@ -7,12 +7,16 @@ const atkinson = Atkinson_Hyperlegible_Next({
   variable: "--font-atkinson",
   display: "swap",
   weight: ["400", "500", "700"],
+  // No metric overrides ship for this family; skip the adjusted fallback.
+  adjustFontFallback: false,
 });
 const atkinsonMono = Atkinson_Hyperlegible_Mono({
   subsets: ["latin"],
   variable: "--font-atkinson-mono",
   display: "swap",
   weight: ["400", "500", "700"],
+  // No metric overrides ship for this family; skip the adjusted fallback.
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
