@@ -13,7 +13,7 @@ export function AccountMenu({ name, role }: { name: string; role: "clerk" | "sup
       </span>
       <button
         type="button"
-        className="h-10 rounded-[6px] border-2 border-band-muted px-3 font-bold text-band-text hover:border-band-text"
+        className="h-9 rounded-[6px] border-2 border-band-muted px-2.5 text-[0.85rem] font-bold sm:h-10 sm:px-3 sm:text-[0.9rem] text-band-text hover:border-band-text"
         onClick={async () => {
           await signOut();
           router.push("/sign-in");

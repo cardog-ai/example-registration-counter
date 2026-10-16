@@ -23,7 +23,7 @@ export function AgencyWordmark({ tone = "ink", sub }: { tone?: "ink" | "band"; s
         <span className="text-[1.02rem] font-bold tracking-[-0.005em]">
           <span className="hidden sm:inline">Department of </span>Vehicle Services
         </span>
-        {sub && <span className={`text-[0.8rem] ${band ? "text-band-muted" : "text-muted"}`}>{sub}</span>}
+        {sub && <span className={`hidden text-[0.8rem] sm:block ${band ? "text-band-muted" : "text-muted"}`}>{sub}</span>}
       </span>
     </span>
   );

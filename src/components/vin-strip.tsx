@@ -72,12 +72,12 @@ export const VinStrip = forwardRef<
           aria-invalid={bad >= 0}
           placeholder="17 characters"
           className="block w-full bg-transparent px-3 pb-1 pt-3 font-mono font-bold uppercase text-ink outline-none placeholder:font-sans placeholder:font-normal placeholder:normal-case placeholder:tracking-normal placeholder:text-faint sm:px-4"
-          style={{ fontSize: "clamp(1.2rem, 5.1vw, 2rem)", letterSpacing: SPACING }}
+          style={{ fontSize: "clamp(1rem, 4.2vw, 2rem)", letterSpacing: SPACING }}
         />
         <div
           aria-hidden
           className="flex select-none px-3 pb-2 font-mono sm:px-4"
-          style={{ fontSize: "clamp(1.2rem, 5.1vw, 2rem)" }}
+          style={{ fontSize: "clamp(1rem, 4.2vw, 2rem)" }}
         >
           {Array.from({ length: 17 }, (_, i) => {
             const filled = i < value.length;
@@ -103,7 +103,7 @@ export const VinStrip = forwardRef<
       </div>
 
       <div className="mt-3 flex min-h-[3.25rem] flex-wrap items-start justify-between gap-3">
-        <p id="vin-status" role="status" className={`min-w-0 flex-1 pt-1 ${statusTone(check)}`}>
+        <p id="vin-status" role="status" className={`min-w-[16rem] flex-1 pt-1 ${statusTone(check)}`}>
           {statusText(check, busy)}
         </p>
         <div className="flex shrink-0 flex-wrap gap-2">
