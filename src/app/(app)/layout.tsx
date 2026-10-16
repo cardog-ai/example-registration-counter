@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AppShell } from "@/kit/app-shell";
 import { AgencyWordmark, CardogCredit } from "@/brand/dvs";
 import { dataMode } from "@/lib/cardog";
+import { queueCount } from "@/lib/checks";
 import { requireViewer } from "@/lib/session";
 import { AccountMenu } from "./account-menu";
 import { Tabs, type Tab } from "./tabs";
@@ -12,6 +13,7 @@ export default async function SignedInLayout({ children }: { children: React.Rea
     { href: "/counter", label: "Counter", key: "c" },
     { href: "/log", label: "Day log", key: "l" },
   ];
+  if (me.role === "supervisor") tabs.push({ href: "/queue", label: "Queue", key: "q", count: queueCount() });
   return (
     <AppShell
       mode={dataMode}

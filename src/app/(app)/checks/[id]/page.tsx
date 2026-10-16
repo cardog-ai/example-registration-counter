@@ -2,9 +2,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { StatusBadge } from "@/components/status";
 import { ShowCalls } from "@/kit/call-log";
-import { earlierChecks, getCheck } from "@/lib/checks";
+import { earlierChecks, getCheck, queue } from "@/lib/checks";
 import { FIELDS, labelFor } from "@/lib/registration";
 import { requireViewer } from "@/lib/session";
+import { Decision } from "./decision";
 
 export const metadata = { title: "Check" };
 
@@ -17,6 +18,8 @@ export default async function CheckPage({ params }: { params: Promise<{ id: stri
   if (!c) notFound();
   const earlier = earlierChecks(c.vin, c.id);
   const vehicle = [c.year, c.make, c.model].filter(Boolean).join(" ");
+  const pending = c.status === "held" || c.status === "flagged";
+  const next = pending && me.role === "supervisor" ? (queue().find((q) => q.id !== c.id) ?? null) : null;
   const back = me.role === "supervisor" && (c.status === "held" || c.status === "flagged") ? "/queue" : `/log?day=${c.day}`;
 
   return (
@@ -63,6 +66,15 @@ export default async function CheckPage({ params }: { params: Promise<{ id: stri
           )}
         </section>
       )}
+
+      {pending &&
+        (me.role === "supervisor" ? (
+          <Decision id={c.id} held={c.status === "held"} nextHref={next ? `/checks/${next.id}` : null} />
+        ) : (
+          <p className="rounded-[8px] border-2 border-dashed border-rule-strong bg-card px-4 py-3 text-muted">
+            Waiting for a supervisor. The decision and its reason will show here.
+          </p>
+        ))}
 
       {c.decidedAt && (
         <section className={`rounded-[8px] border-2 bg-card p-4 sm:p-5 ${c.status === "approved" ? "border-good" : "border-stop"}`}>
@@ -117,24 +129,8 @@ export default async function CheckPage({ params }: { params: Promise<{ id: stri
           Recalls issued for this model and year{vehicle ? ` (${vehicle})` : ""}: {c.recalls ? c.recalls.total : "not read"}
         </h2>
         <p className="mt-1 text-[0.9rem]">
-          For information only. Campaigns are listed by model year, not by this vehicle, and are not part of the registration.
+          For information only. It is not a check of this vehicle and is not part of the registration.
         </p>
-        {c.recalls && c.recalls.campaigns.length > 0 && (
-          <ul className="mt-3 divide-y divide-info/20 text-[0.9rem]">
-            {c.recalls.campaigns.map((r) => (
-              <li key={r.authorityLabel + r.campaignNumber} className="flex flex-wrap justify-between gap-x-4 py-2">
-                <span>
-                  <span className="font-bold">{r.authorityLabel}</span> {r.campaignNumber}
-                  {r.component ? ` · ${r.component}` : ""}
-                </span>
-                <span className="tabular-nums">{r.recallDate ?? ""}</span>
-              </li>
-            ))}
-            {c.recalls.total > c.recalls.campaigns.length && (
-              <li className="py-2">The newest {c.recalls.campaigns.length} of {c.recalls.total} are shown.</li>
-            )}
-          </ul>
-        )}
       </section>
 
       <section className="rounded-[8px] border-2 border-ink bg-card p-4 sm:p-5">

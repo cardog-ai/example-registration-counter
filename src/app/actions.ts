@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createCheck } from "@/lib/checks";
+import { createCheck, decide } from "@/lib/checks";
 import { dropRead, heldRead, readVin } from "@/lib/counter-read";
 import {
   compareDocument,
@@ -74,4 +74,25 @@ export async function recordCheck(input: RecordInput): Promise<RecordResult> {
   revalidatePath("/log");
   revalidatePath("/queue");
   return { ok: true, id: row.id, number: row.number, status };
+}
+
+export type DecideResult = { ok: true } | { ok: false; error: string };
+
+/**
+ * A supervisor's decision on a held or flagged check: approve (an override,
+ * for a held check) or return it to the clerk. Either way the reason is
+ * required and kept with the check.
+ */
+export async function decideCheck(id: string, outcome: "approved" | "returned", reason: string): Promise<DecideResult> {
+  const me = await getViewer();
+  if (!me || me.role !== "supervisor") return { ok: false, error: "Only a supervisor can decide a check." };
+  const why = reason.trim();
+  if (why.length < 8) return { ok: false, error: "Give the reason in a few words, so the record says why." };
+  if (!decide(id, me.name, outcome, why.slice(0, 1000))) {
+    return { ok: false, error: "This check has already been decided." };
+  }
+  revalidatePath("/queue");
+  revalidatePath("/log");
+  revalidatePath(`/checks/${id}`);
+  return { ok: true };
 }
